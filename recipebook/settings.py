@@ -114,6 +114,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = 'static/'
+LOGIN_REDIRECT_URL = 'recipes/list'
+LOGOUT_REDIRECT_URL = 'accounts/login'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Default primary key field type
 
