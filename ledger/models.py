@@ -15,14 +15,14 @@ class Profile(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return "{}".format(self.name)
 
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.name
+        return "{}".format(self.name)
     
     def get_absolute_url(self): 
         return reverse('ledger:recipe_list',args=[self.pk])
@@ -35,13 +35,13 @@ class Recipe(models.Model):
         null=True,
         default=None,
         on_delete=models.CASCADE,
-        related_name='recipe'
+        related_name='users'
     )
     createdOn = models.DateTimeField(auto_now_add=True, null=True)
     updateOn = models.DateTimeField(auto_now=True, null=True)
     
     def __str__(self):
-        return self.name
+        return "{}".format(self.name)
     
     def get_absolute_url(self):
         return reverse('ledger:recipe_detail',args=[self.pk])
@@ -49,7 +49,6 @@ class Recipe(models.Model):
 
 class RecipeIngredient(models.Model):
     quantity = models.CharField(max_length=50)
-    
     ingredient = models.ForeignKey(
        Ingredient,
        on_delete=models.CASCADE,
