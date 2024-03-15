@@ -35,7 +35,7 @@ class Recipe(models.Model):
         null=True,
         default=None,
         on_delete=models.CASCADE,
-        related_name='users'
+        related_name='recipe'
     )
     createdOn = models.DateTimeField(auto_now_add=True, null=True)
     updateOn = models.DateTimeField(auto_now=True, null=True)

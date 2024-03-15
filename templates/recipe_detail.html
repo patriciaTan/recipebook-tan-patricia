@@ -1,0 +1,16 @@
+{% extends "basic.html" %}
+{% block content %}
+
+    <h1>{{ object.name }}</h1>
+    <p><strong>By: </strong>{{ object.author.name }}</p>
+
+    <p><strong>Created on: </strong>{{ object.createdOn }}</p>
+    <p><strong>Updated on: </strong>{{ object.updateOn }}</p>
+
+    <ul>
+        {% for ingredient in object.ingredients.all %}
+        <li> {{ ingredient.ingredient.name }}, {{ ingredient.quantity }} </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
